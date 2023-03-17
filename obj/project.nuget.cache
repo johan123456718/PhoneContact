@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "4AfERYAYKiKSZ+vF2uv0kBWxysNULFcIJd+NyLHoRzEUuRqG5Fg8pr6/2nYi+baetxmuMbkehfuP2l4DNWeXdg==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\WPF\\PhoneContact\\PhoneContact.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.idrottonline.se/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

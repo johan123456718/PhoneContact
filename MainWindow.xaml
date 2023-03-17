@@ -1,0 +1,97 @@
+﻿<Window x:Class="P1PhoneJohan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P1PhoneJohan"
+        mc:Ignorable="d"
+        Loaded = "Window_Loaded"
+        Closing = "Window_Closed" 
+        Title="Kontakter" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <UniformGrid DockPanel.Dock="Top" Rows="1">
+                <ComboBox x:Name ="SortItemComboBox" Margin="10,0,-66,0" Height="20" SelectionChanged="Sorting_SelectionChanged">
+                    <ComboBoxItem IsSelected="True">
+                        Förnamn
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Efternamn
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox x:Name ="SortOrderComboBox" Margin="71,0,-150,0" Height="20" SelectionChanged="Sorting_SelectionChanged">
+                    <ComboBoxItem IsSelected="True">
+                        Fallande
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Stigande
+                    </ComboBoxItem>
+                </ComboBox>
+                <Label Margin="165,0,-15,0" 
+                       RenderTransformOrigin="0.905,0.495">
+                    Sök
+                </Label>
+                <TextBox x:Name="SearchTextBox" 
+                         Height="20" 
+                         Margin="15,0,0,0"
+                         TextChanged="Search_TextChanged"/>
+            </UniformGrid>
+            <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+                <Label Margin="0,0,32,0">
+                    Förnamn
+                </Label>
+                <TextBox x:Name ="FirstNameTextBox" 
+                         Height="20"
+                         Margin="-32,0,16,0"/>
+                <Label Margin="-16,0,41,0" 
+                       Content="Efternamn"/>
+                <TextBox x:Name ="LastNameTextBox" 
+                         Height="20" 
+                         Margin="-41,0,26,0"/>
+
+                <Label Margin="-26,0,62,0">Telefon</Label>
+                <TextBox x:Name ="PhoneNumberTextBox" 
+                         Height="20"
+                         Margin="-62,0,47,0"/>
+
+                <ComboBox x:Name ="SelectColorComboBox" Margin="-42,0,42,0" Height="20"/>
+
+                <Button 
+                        x:Name ="AddButton"
+                        Click="Add_Click" 
+                        Height="20"
+                        Content="Lägg till" 
+                        Margin="-37,0,28,0"/>
+                <Button Click="Remove_Click" 
+                        Height="20"
+                        Content="Ta bort" 
+                        Margin="-23,0,10,0"/>
+            </UniformGrid>
+            <ListBox x:Name="ContactsListBox" 
+                     Width="792"
+                     Height="376"
+                     SelectionChanged="ContactsListBox_SelectionChanged">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="{Binding Color}"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="5">
+                            <TextBlock>
+                            <Run Text="{Binding FirstName}"/>
+                            <Run Text="{Binding LastName}"/>
+                            <Run Text=":"/>
+                            <Run Text="{Binding PhoneNumber}"/>
+                            </TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</Window>
